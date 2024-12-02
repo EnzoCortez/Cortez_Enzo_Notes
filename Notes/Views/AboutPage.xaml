@@ -22,6 +22,5 @@
                TextColor="Gray"
                HorizontalTextAlignment="Center" />
 
-        
     </VerticalStackLayout>
 </ContentPage>
