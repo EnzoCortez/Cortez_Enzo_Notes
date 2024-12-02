@@ -71,12 +71,18 @@
 	  <MauiXaml Update="Views\AboutPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\AllNotes.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\NotePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\AllNotes.xaml.cs">
+	    <DependentUpon>AllNotes.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\NotePage.xaml.cs">
 	    <DependentUpon>NotePage.xaml</DependentUpon>
 	  </Compile>
