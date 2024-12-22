@@ -3,24 +3,54 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:Notes.ViewModels"
              x:Class="Notes.Views.NotePage"
-             Title="Note">
+             Title="Nota">
     <ContentPage.BindingContext>
         <viewModels:NoteViewModel />
     </ContentPage.BindingContext>
-    <VerticalStackLayout Spacing="10" Margin="5">
-        <Editor x:Name="TextEditor"
-                Placeholder="Ingresa tus Apuntes"
-                Text="{Binding Text}"
-                HeightRequest="100" />
 
-        <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
-            <Button Text="EC_Guardar"
-                    Command="{Binding SaveCommand}"/>
+    <Grid Padding="20" RowDefinitions="Auto, *, Auto" ColumnDefinitions="*">
+        <!-- Título o Encabezado -->
+        <Label Text="Editar Nota"
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               TextColor="#6200EE"
+               Grid.Row="0" />
+
+        <!-- Campo de texto -->
+        <Frame BackgroundColor="#E3F2FD"
+               CornerRadius="10"
+               HasShadow="True"
+               Padding="10"
+               Grid.Row="1"
+               Margin="0,20,0,20">
+            <Editor x:Name="TextEditor"
+                    Placeholder="Ingresa tus apuntes aquí..."
+                    Text="{Binding Text}"
+                    FontSize="16"
+                    AutoSize="TextChanges"
+                    TextColor="Black"
+                    BackgroundColor="Transparent" />
+        </Frame>
+
+        <!-- Botones -->
+        <Grid Grid.Row="2" ColumnDefinitions="*,*" ColumnSpacing="10">
+            <Button Text="Guardar"
+                    Command="{Binding SaveCommand}"
+                    BackgroundColor="#6200EE"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    FontAttributes="Bold" />
 
             <Button Grid.Column="1"
-                    Text="EC_Borrar"
-                    Command="{Binding DeleteCommand}"/>
-
+                    Text="Borrar"
+                    Command="{Binding DeleteCommand}"
+                    BackgroundColor="Red"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    FontAttributes="Bold" />
         </Grid>
-    </VerticalStackLayout>
+    </Grid>
 </ContentPage>

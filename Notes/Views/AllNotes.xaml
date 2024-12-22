@@ -9,9 +9,10 @@
         <viewModels:ECortezNotesViewModel />
     </ContentPage.BindingContext>
 
-    <!-- Add an item to the toolbar -->
+    <!-- Toolbar -->
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding NewCommand}" IconImageSource="{FontImage Glyph='+', Color=White, Size=22}" />
+        <!-- Cambiar 'IconImageSource' a un recurso de imagen o removerlo -->
+        <ToolbarItem Text="Add" Command="{Binding NewCommand}" />
     </ContentPage.ToolbarItems>
 
     <!-- Main Content -->
@@ -34,7 +35,7 @@
                             SelectionMode="Single"
                             SelectionChangedCommand="{Binding SelectNoteCommand}"
                             SelectionChangedCommandParameter="{Binding Source={RelativeSource Self}, Path=SelectedItem}">
-                <!-- Diseño de los elementos -->
+                <!-- Dis de los elementos -->
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Vertical" ItemSpacing="15" />
                 </CollectionView.ItemsLayout>
