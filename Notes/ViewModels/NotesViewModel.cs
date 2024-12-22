@@ -5,13 +5,13 @@ using System.Windows.Input;
 
 namespace Notes.ViewModels;
 
-internal class NotesViewModel : IQueryAttributable
+internal class ECortezNotesViewModel : IQueryAttributable
 {
     public ObservableCollection<ViewModels.NoteViewModel> AllNotes { get; }
     public ICommand NewCommand { get; }
     public ICommand SelectNoteCommand { get; }
 
-    public NotesViewModel()
+    public ECortezNotesViewModel()
     {
         AllNotes = new ObservableCollection<ViewModels.NoteViewModel>(Models.Note.LoadAll().Select(n => new NoteViewModel(n)));
         NewCommand = new AsyncRelayCommand(NewNoteAsync);

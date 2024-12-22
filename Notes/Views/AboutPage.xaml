@@ -6,15 +6,14 @@
     <ContentPage.BindingContext>
         <viewModels:AboutViewModel />
     </ContentPage.BindingContext>
-
     <Frame BackgroundColor="LightGray" CornerRadius="10" Padding="10" Margin="10">
         <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
             <Label Text="Autor: Enzo Cortez" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" />
             <Label Text="Carrera: Ingeniería en Software" FontSize="18" HorizontalOptions="Center" />
-            <Image Source="images.jpg" 
-                        />
+            <Image Source="ecortezimages.jpg" 
+                       SemanticProperties.Description="Imagen del autor Enzo Cortez"
+                       HeightRequest="150"
+                       WidthRequest="150" />
         </VerticalStackLayout>
     </Frame>
-
-
 </ContentPage>

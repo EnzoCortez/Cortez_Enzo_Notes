@@ -4,11 +4,28 @@
              xmlns:local="clr-namespace:Notes"
              x:Class="Notes.App">
     <Application.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
-                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
+        
+            <!-- Colores personalizados -->
+            <Color x:Key="PrimaryColor">#6200EE</Color>
+            <Color x:Key="AccentColor">#03DAC6</Color>
+            <Color x:Key="TextColor">#FFFFFF</Color>
+
+            <!-- Estilos globales para botones -->
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}" />
+                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+
+            <!-- Estilos para etiquetas -->
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="Margin" Value="10,5" />
+            </Style>
     </Application.Resources>
+
+    
 </Application>
