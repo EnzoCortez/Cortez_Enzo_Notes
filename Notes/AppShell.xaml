@@ -7,11 +7,11 @@
     Shell.FlyoutBehavior="Disabled">
 
 
-    <FlyoutItem Title="Todas las Notas" Icon="icon_notes.png">
+    <!--<FlyoutItem Title="Todas las Notas" Icon="icon_notes.png">
         <ShellContent 
             Title="Notas" 
             ContentTemplate="{DataTemplate views:AllNotesPage}" />
-    </FlyoutItem>
+    </FlyoutItem>-->
 
     <TabBar>
         <ShellContent

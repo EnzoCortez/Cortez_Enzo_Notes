@@ -6,17 +6,15 @@
     <ContentPage.BindingContext>
         <viewModels:AboutViewModel />
     </ContentPage.BindingContext>
-    <VerticalStackLayout Spacing="10" Margin="10">
-        <HorizontalStackLayout Spacing="10">
-            <Image Source="dotnet_bot.png"
-                   SemanticProperties.Description="The dot net bot waving hello!"
-                   HeightRequest="64" />
-            <Label FontSize="22" FontAttributes="Bold" Text="{Binding Title}" VerticalOptions="End" />
-            <Label FontSize="22" Text="{Binding Version}" VerticalOptions="End" />
-        </HorizontalStackLayout>
 
-        <Label Text="{Binding Message}" />
-        <Button Text="Learn more..." Command="{Binding ShowMoreInfoCommand}" />
-    </VerticalStackLayout>
+    <Frame BackgroundColor="LightGray" CornerRadius="10" Padding="10" Margin="10">
+        <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
+            <Label Text="Autor: Enzo Cortez" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" />
+            <Label Text="Carrera: Ingeniería en Software" FontSize="18" HorizontalOptions="Center" />
+            <Image Source="images.jpg" 
+                        />
+        </VerticalStackLayout>
+    </Frame>
+
 
 </ContentPage>
