@@ -2,65 +2,41 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:Notes.ViewModels"
              x:Class="Notes.Views.AllNotesPage"
-             Title="Tus Apuntes"
-             NavigatedTo="ContentPage_NavigatedTo">
-
+             Title="Tus Notas">
     <ContentPage.BindingContext>
         <viewModels:ECortezNotesViewModel />
     </ContentPage.BindingContext>
 
-    <!-- Toolbar -->
+    <!-- Barra de herramientas con un boton para agregar notas -->
     <ContentPage.ToolbarItems>
-        <!-- Cambiar 'IconImageSource' a un recurso de imagen o removerlo -->
-        <ToolbarItem Text="Add" Command="{Binding NewCommand}" />
+        <ToolbarItem Text="Add" Command="{Binding NewCommand}" IconImageSource="{FontImage Glyph='+', Color=Black, Size=22}" />
     </ContentPage.ToolbarItems>
 
-    <!-- Main Content -->
-    <ContentPage.Content>
-        <Grid Padding="20">
-            <!-- Encabezado -->
-            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Fill">
-                <Label Text="Tus Apuntes"
-                       FontSize="28"
-                       FontAttributes="Bold"
-                       VerticalOptions="Center"
-                       HorizontalOptions="StartAndExpand"
-                       TextColor="#6200EE" />
-            </StackLayout>
+    <!-- Display notes in a list -->
+    <CollectionView x:Name="ecnotesCollection"
+                    ItemsSource="{Binding AllNotes}"
+                    Margin="20"
+                    SelectionMode="Single"
+                    SelectionChangedCommand="{Binding SelectNoteCommand}"
+                    SelectionChangedCommandParameter="{Binding Source={RelativeSource Self}, Path=SelectedItem}">
+        <!-- Designate how the collection of items are laid out -->
+        <CollectionView.ItemsLayout>
+            <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
+        </CollectionView.ItemsLayout>
 
-            <!-- Lista de Apuntes -->
-            <CollectionView x:Name="ecnotesCollection"
-                            ItemsSource="{Binding AllNotes}"
-                            Margin="0,10,0,0"
-                            SelectionMode="Single"
-                            SelectionChangedCommand="{Binding SelectNoteCommand}"
-                            SelectionChangedCommandParameter="{Binding Source={RelativeSource Self}, Path=SelectedItem}">
-                <!-- Dis de los elementos -->
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="15" />
-                </CollectionView.ItemsLayout>
+        <!-- Define the appearance of each item in the list -->
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Border Style="{StaticResource NoteItemStyle}">
+                    <StackLayout>
+                        <!-- Titulo de la nota -->
+                        <Label Text="{Binding Text}" Style="{StaticResource NoteTitleStyle}" />
+                        <!-- Fecha de la nota -->
+                        <Label Text="{Binding Date}" Style="{StaticResource NoteDateStyle}" />
+                    </StackLayout>
+                </Border>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
 
-                <!-- Plantilla de elementos -->
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Frame BackgroundColor="#E3F2FD"
-                               CornerRadius="10"
-                               HasShadow="True"
-                               Padding="15"
-                               Margin="0,5,0,5">
-                            <StackLayout>
-                                <Label Text="{Binding Text}"
-                                       FontSize="18"
-                                       FontAttributes="Bold"
-                                       TextColor="#1A237E" />
-                                <Label Text="{Binding Date}"
-                                       FontSize="14"
-                                       TextColor="#607D8B" />
-                            </StackLayout>
-                        </Frame>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </Grid>
-    </ContentPage.Content>
+    </CollectionView>
 </ContentPage>

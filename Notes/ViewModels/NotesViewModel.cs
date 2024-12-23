@@ -13,7 +13,7 @@ internal class ECortezNotesViewModel : IQueryAttributable
 
     public ECortezNotesViewModel()
     {
-        AllNotes = new ObservableCollection<ViewModels.NoteViewModel>(Models.Note.LoadAll().Select(n => new NoteViewModel(n)));
+        AllNotes = new ObservableCollection<ViewModels.NoteViewModel>(Models.Notes.LoadAll().Select(n => new NoteViewModel(n)));
         NewCommand = new AsyncRelayCommand(NewNoteAsync);
         SelectNoteCommand = new AsyncRelayCommand<ViewModels.NoteViewModel>(SelectNoteAsync);
     }
@@ -53,7 +53,7 @@ internal class ECortezNotesViewModel : IQueryAttributable
             }
             // If note isn't found, it's new; add it.
             else
-                AllNotes.Insert(0, new NoteViewModel(Models.Note.Load(noteId)));
+                AllNotes.Insert(0, new NoteViewModel(Models.Notes.Load(noteId)));
         }
     }
 }

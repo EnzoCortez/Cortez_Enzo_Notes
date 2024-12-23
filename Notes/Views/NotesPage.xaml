@@ -10,7 +10,7 @@
 
     <Grid Padding="20" RowDefinitions="Auto, *, Auto" ColumnDefinitions="*">
         <!-- Título o Encabezado -->
-        <Label Text="Editar Nota"
+        <Label Text="ECEditar Nota"
                FontSize="24"
                FontAttributes="Bold"
                HorizontalOptions="Center"
